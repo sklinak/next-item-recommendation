@@ -1,36 +1,36 @@
 # Next Item Recommendation
 
-Простая рекомендательная система которая предсказывает следующий товар,
-который пользователь посмотрит — на основе его истории просмотров.
+A simple recommendation system that predicts the next item
+a user will view based on their browsing history.
 
-Учебный проект, отборочное задание на траекторию RecSys & AI.
+Built as a university selection assignment for a RecSys & AI track.
 
-## Как это работает
+## How it works
 
-Строим граф переходов между товарами: смотрим на все сессии и считаем,
-как часто пользователи переходили от одного товара к другому.
-Когда нужно сделать предсказание — берём последний просмотренный товар
-и возвращаем топ-10 товаров, к которым чаще всего переходили после него.
+Builds a transition graph between items: counts how often users
+moved from one item to another across all sessions.
+To make a prediction — takes the last viewed item and returns
+top-10 items that were most frequently viewed after it.
 
-## Данные
+## Data
 
-Синтетический датасет e-commerce — 2565 сессий просмотров, 400 уникальных товаров.
-Каждая сессия — последовательность ID товаров в порядке просмотра.
+Synthetic e-commerce dataset — 2565 browsing sessions, 400 unique items.
+Each session is a sequence of item IDs in viewing order.
 
-## Запуск
+## Usage
 
-1. Положи файл `sessions.jsonl` в папку с ноутбуком
-2. Открой `recsys_solution_1.ipynb` в Jupyter
-3. Запусти все ячейки сверху вниз
+1. Place `sessions.jsonl` in the same folder as the notebook
+2. Open `recsys_solution_1.ipynb` in Jupyter
+3. Run all cells top to bottom
 
-Зависимости: только стандартная библиотека Python + matplotlib.
+Dependencies: Python standard library + matplotlib only.
 
-## Результаты
+## Results
 
-| Модель | Hit@10 |
+| Model | Hit@10 |
 |---|---|
-| Топ-10 популярных (бейзлайн) | 0.384 |
-| **Граф переходов (наша модель)** | **0.514** |
+| Top-10 popular items (baseline) | 0.384 |
+| **Transition graph (our model)** | **0.514** |
 
-Модель угадывает следующий товар в 51% случаев —
-на 13 процентных пунктов лучше простого бейзлайна.
+The model correctly predicts the next item in 51% of cases —
+13 percentage points better than the simple baseline.
